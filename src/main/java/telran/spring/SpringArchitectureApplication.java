@@ -14,9 +14,7 @@ public class SpringArchitectureApplication {
 		
 		ConfigurableApplicationContext ct =
 				SpringApplication.run(SpringArchitectureApplication.class, args);
-		MessageSender messageSender = ct.getBean(MessageSender.class);
-		messageSender.menu(new ConsoleInputOutput());
-		ct.close();
+		
 	}
 
 }
