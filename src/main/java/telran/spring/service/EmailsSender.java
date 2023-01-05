@@ -3,7 +3,6 @@ package telran.spring.service;
 import org.springframework.stereotype.Service;
 
 import telran.spring.dto.*;
-import telran.view.*;
 
 @Service("email")
 
