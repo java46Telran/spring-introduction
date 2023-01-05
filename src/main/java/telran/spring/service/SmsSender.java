@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 
 import telran.spring.dto.*;
 
-@Service("sms")
+@Service
 public class SmsSender implements Sender {
 
 	@Override
