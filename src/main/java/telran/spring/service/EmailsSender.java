@@ -16,8 +16,11 @@ public class EmailsSender implements Sender {
 			emailMessage = (EmailMessage) message;
 			res = String.format("email sender text '%s' has been sent to %s\n", emailMessage.text,
 					emailMessage.emailAddress);
+			LOG.debug("message: {}", res);
 		} catch (Exception e) {
 			res = "Message Data mismatch sender type";
+			LOG.error("Exception {}", e.getMessage());
+			
 		}
 
 		return res;
