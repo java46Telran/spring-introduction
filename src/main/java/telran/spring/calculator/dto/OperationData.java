@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 @JsonSubTypes({@Type(ArithmeticOperationData.class),
 	@Type(DateDaysOperationData.class), @Type(DatesOperationData.class)})
 public class OperationData {
+	public static final String DATE_PATTERN = "\\d{4}-\\d{2}-\\d{2}";
 public String operationName;
 public String additionalData;
 }

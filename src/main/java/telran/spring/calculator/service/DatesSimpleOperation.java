@@ -6,27 +6,34 @@ import org.springframework.stereotype.Service;
 
 import telran.spring.calculator.dto.DateDaysOperationData;
 import telran.spring.calculator.dto.OperationData;
-@Service("dates-simple")
-public class DatesSimpleOperation implements Operation {
-
+@Service
+public class DatesSimpleOperation extends AbstractOperation {
+	
 	@Override
 	public String execute(OperationData data) {
 		String res = "";
-		DateDaysOperationData dateData = (DateDaysOperationData) data;
 		try {
+			DateDaysOperationData dateData = (DateDaysOperationData) data;
+		
 			LocalDate date = LocalDate.parse(dateData.date);
 			int days = dateData.days;
 			if(data.additionalData.equalsIgnoreCase("before")) {
 				days = -days;
 			}
 			res = date.plusDays(days).toString();
-		} catch (Exception e) {
-			res = "Wrong Date format should be YYYY-MM-DD";
+		} catch (ClassCastException e) {
+			res = wrongDtoMessage;
 		} 
 		
 		
 		
 		return res;
+	}
+
+	@Override
+	public String getOperationName() {
+
+		return "dates-simple";
 	}
 
 }
